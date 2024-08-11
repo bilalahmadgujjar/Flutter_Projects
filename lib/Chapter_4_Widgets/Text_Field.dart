@@ -15,30 +15,26 @@ class Text_Field extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            SizedBox(
+              height: screenHeight(context) * 5,
+            ),
 
-            SizedBox(height: screenHeight(context)*5,),
-              TextFormField(
-                keyboardType: TextInputType.emailAddress,
-
-                decoration: InputDecoration(
+            TextFormField(
+              keyboardType: TextInputType.emailAddress,
+              decoration: InputDecoration(
                   filled: true,
                   fillColor: Colors.grey.withOpacity(0.3),
                   hintText: 'Email',
                   labelText: 'Email',
                   hintStyle: const TextStyle(fontSize: 13),
-errorBorder: OutlineInputBorder(
-borderSide: const BorderSide(color: Colors.red),
-  borderRadius: BorderRadius.circular(30),
-)
-                ),
-
-
-                onChanged: (value)
-                {
-                  print(value);
-                },
-
-              ),
+                  errorBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(color: Colors.red),
+                    borderRadius: BorderRadius.circular(30),
+                  )),
+              onChanged: (value) {
+                print(value);
+              },
+            ),
           ],
         ),
       ),
