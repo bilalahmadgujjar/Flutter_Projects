@@ -2,6 +2,7 @@
 import 'dart:async';
 
 import 'package:first_project/Chapter_9_Multi_Rol_SharedPref/Login_Screen.dart';
+import 'package:first_project/Chapter_9_Multi_Rol_SharedPref/Signup_Screen.dart';
 import 'package:first_project/Chapter_9_Multi_Rol_SharedPref/Student.dart';
 import 'package:first_project/Chapter_9_Multi_Rol_SharedPref/Teacher.dart';
 import 'package:flutter/material.dart';
@@ -41,14 +42,14 @@ class _Splash_ScreenState extends State<Splash_Screen> {
 
       else{
         Timer(const Duration(seconds: 2), () {
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Login_Screen()));
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Login_Page()));
         });
       }
 
 
     } else {
       Timer(const Duration(seconds: 2), () {
-        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Login_Screen()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Login_Page()));
       });
     }
   }
@@ -59,9 +60,11 @@ class _Splash_ScreenState extends State<Splash_Screen> {
       body: SafeArea(
         child: Center(
           child: Image(
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.cover,
+            height: double.infinity,
+            width: double.infinity,
             image: NetworkImage(
-              'https://images.pexels.com/photos/25347408/pexels-photo-25347408/free-photo-of-a-street-with-a-lamp-post-and-a-building.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
+              'https://i.pinimg.com/736x/f6/97/33/f69733fa23853a67d43ecbcdc0eb2fe4.jpg',
             ),
           ),
         ),

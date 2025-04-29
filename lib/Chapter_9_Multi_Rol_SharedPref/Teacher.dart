@@ -1,5 +1,5 @@
 
-import 'package:first_project/Chapter_9_Multi_Rol_SharedPref/Login_Screen.dart';
+import 'package:first_project/Chapter_9_Multi_Rol_SharedPref/Signup_Screen.dart';
 import 'package:first_project/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -29,9 +29,12 @@ class _TeacherState extends State<Teacher> {
   void load()
   async {
     SharedPreferences sp =await SharedPreferences.getInstance();
-    email= sp.getString('email') ?? '';
-    age = sp.getString('age') ?? '';
-    teacher = sp.getString('userType') ?? '';
+    setState(() {
+      email= sp.getString('email') ?? '';
+      age = sp.getString('age') ?? '';
+      teacher = sp.getString('userType') ?? '';
+    });
+
   }
 
   @override
@@ -79,10 +82,10 @@ class _TeacherState extends State<Teacher> {
               InkWell(
                 onTap: () async {
                   SharedPreferences sp = await SharedPreferences.getInstance();
+                  await sp.setBool('isLogin', false);
 
-                  sp.clear();
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Login_Screen()));
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => const Signup_Screen()));
                 },
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -91,7 +94,7 @@ class _TeacherState extends State<Teacher> {
                     width: double.infinity,
                     color: Colors.deepOrange,
                     child: const Center(
-                      child: Text('LoginOut'),
+                      child: Text('Log Out',style: TextStyle(color: Colors.white),),
                     ),
                   ),
                 ),
